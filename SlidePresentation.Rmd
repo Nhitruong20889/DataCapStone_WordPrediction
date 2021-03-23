@@ -1,0 +1,51 @@
+---
+title: "WordPrediction_ SlidePre"
+author: "Nhi Truong"
+date: "03/24/2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The Project Overwiew
+
+To build text-prediction model application with R Shiny package that predicts words using a Natural Language Processing is the goal of this Project. 
+
+The task is trying to predict "the next most common" word based on given a word or phrase as user's input. It is similar to the platform using in almost of smart phone keyboards today.
+
+The key tasks:
+(1.) Create all R datassets and files needed for TheNextWordPrediction Model
+(2.) Build the Shiny App and host it at shinyapp.io
+(3.) Make summary slides for presentation purpose which is hosted at R pubs
+
+## TheNextWordPrediction Model
+
+The principles of **tidy data** applied to text mining in R. The key steps involved the word prediction model as follow:
+
+* Input data set: creat training datasets from raw text files
+* Clean the raw data: clean all non-characters, symbols, and badwords; then separate into 2, 3 and up-to 7 word n-grams and save as tibbles
+* The n-grams tibbles were sorted by frequency and saved them as *.rds* files
+* Functions used to predict word is a **back-off** type
+      - Users enter an input word/phrase
+      - Model uses the last 6-1 word(s) to predict the best match of the next word in the training dataset.
+* Output: the most common next word is predicted
+
+## The Predictor Shiny App
+
+**Overview:** A simple user interface in APP to stimulate the next word prediction model. 
+
+The below image describes how the app functions and its instructions.
+
+![WordPredictionApp](WordPredictionApp1.png) {height= "100" width=10%}
+
+
+
+## Reference
+
+[Tidy Data](http://vita.had.co.nz/papers/tidy-data.html)
+
+[Text Mining with R: A Tidy Approach](http://tidytextmining.com/index.html)
+
+[Next Word Predictor App](http://nhitruong20814.shinyapps.io/n_gram_data/)
